@@ -1,0 +1,2079 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gen AI Film Making Masterclass - Aevy TV</title>
+  <style>
+    /* ========================================
+       CSS CUSTOM PROPERTIES (VARIABLES)
+       ======================================== */
+    :root {
+      /* Colors - Gradients */
+      --gradient-primary: linear-gradient(135deg, #7FA048 0%, #4A6828 100%);
+      --gradient-radial-hero: radial-gradient(circle at bottom, #1a260f 0%, #0a0f05 45%, #000 100%);
+      --gradient-radial-demo: radial-gradient(circle at top, #1d290e 0%, #0b0f04 45%, #000 100%);
+      --gradient-radial-stats: radial-gradient(circle at top, #18240b 0%, #080c03 40%, #000 100%);
+      --gradient-radial-curriculum: radial-gradient(circle at bottom, #152108 0%, #070a03 40%, #000 100%);
+      --gradient-icon: linear-gradient(135deg, #7FA048 0%, #4A6828 100%);
+      --gradient-badge-logo: linear-gradient(135deg, #7FA048 0%, #4A6828 100%);
+
+      /* Colors - Surfaces */
+      --color-bg-primary: #000;
+      --color-bg-surface: #05030c;
+      --color-bg-card: #181818;
+      --color-bg-card-alt: #151515;
+      --color-bg-video-board: #fafafa;
+      --color-bg-tweet: #000;
+      --color-bg-faq: #07080b;
+
+      /* Colors - Text */
+      --color-text-primary: #ffffff;
+      --color-text-secondary: #e0e0e0;
+      --color-text-tertiary: #d0d0d0;
+      --color-text-muted: #c7c7c7;
+      --color-text-dim: #b3b3b3;
+      --color-text-darker: #aaa;
+
+      /* Colors - Borders */
+      --color-border-light: rgba(255, 255, 255, 0.12);
+      --color-border-card: #2a2a2a;
+      --color-border-video: #3b3245;
+      --color-border-faq: #232323;
+
+      /* Colors - Accents */
+      --color-accent-cyan: #13c1d7;
+      --color-accent-green: #18d34f;
+      --color-accent-green-bg: #0f2513;
+
+      /* Spacing */
+      --spacing-xs: 10px;
+      --spacing-sm: 20px;
+      --spacing-md: 40px;
+      --spacing-lg: 60px;
+      --spacing-xl: 80px;
+      --spacing-2xl: 120px;
+
+      /* Border Radius */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+
+      /* Transitions */
+      --transition-base: 0.3s ease;
+
+      /* Breakpoints (for reference in media queries) */
+      --bp-xs: 480px;
+      --bp-sm: 600px;
+      --bp-md: 768px;
+      --bp-lg: 900px;
+      --bp-xl: 992px;
+    }
+
+    /* ========================================
+       BASE STYLES
+       ======================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--color-bg-primary);
+      color: var(--color-text-primary);
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       REUSABLE COMPONENTS
+       ======================================== */
+
+    /* Gradient Badge */
+    .gradient-badge {
+      padding: 4px;
+      border-radius: var(--radius-pill);
+      background: var(--gradient-primary);
+      display: inline-flex;
+    }
+
+    .gradient-badge span {
+      padding: 10px 36px;
+      border-radius: var(--radius-pill);
+      background: rgba(0, 0, 0, 0.9);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+    }
+
+    /* Gradient Text */
+    .gradient-text {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Button CTA */
+
+     .btn-cta {
+      border: none;
+      padding: 18px 60px;
+      border-radius: var(--radius-pill);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      background: var(--color-text-primary);
+      color: var(--color-bg-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      color: white;
+      background: linear-gradient(135deg, #7FA048 0%, #4A6828 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      border-radius: var(--radius-pill);
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-2px);
+      color: #ffffff !important;
+    }
+
+    /* Ensure all inner text and icons turn white */
+
+    .btn-cta:hover span,
+    .btn-cta:hover .arrow {
+      color: #ffffff !important;
+    }
+
+    .btn-cta:hover::before {
+      opacity: 1;
+    }
+
+    .btn-cta span,
+    .btn-cta .arrow {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-cta .arrow {
+      font-size: 18px;
+      transform: translateY(1px);
+    } 
+
+     
+
+
+
+
+
+
+
+
+    /* Section Container */
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-sm);
+    }
+
+    /* ========================================
+       HERO SECTION
+       ======================================== */
+    .hero {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--spacing-md) var(--spacing-sm) var(--spacing-xl);
+      background: var(--gradient-radial-hero);
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .badge-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-xs);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .badge-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gradient-badge-logo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .hero-title {
+      font-size: 62px;
+      line-height: 1.05;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--color-text-tertiary);
+      line-height: 1.6;
+      max-width: 640px;
+      margin: 0 auto var(--spacing-md);
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 70px;
+      margin-bottom: var(--spacing-md);
+      flex-wrap: wrap;
+    }
+
+    .info-block {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--color-text-secondary);
+    }
+
+    .info-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 16px;
+      background: var(--gradient-icon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .info-text {
+      text-align: left;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--color-text-dim);
+    }
+
+    .info-text strong {
+      display: block;
+      font-size: 16px;
+      color: var(--color-text-primary);
+      letter-spacing: 0;
+      text-transform: none;
+      margin-top: 4px;
+    }
+
+    .divider {
+      width: 1px;
+      height: 36px;
+      background: var(--color-border-light);
+    }
+
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 26px;
+      flex-wrap: wrap;
+    }
+
+    .enrolled {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--color-text-secondary);
+    }
+
+    .avatars {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--color-bg-surface);
+      background: #555;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .avatar:nth-child(2),
+    .avatar:nth-child(3),
+    .avatar:nth-child(4) {
+      margin-left: -10px;
+    }
+
+    .avatar:nth-child(4) {
+      background: var(--gradient-icon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .enrolled-text {
+      font-size: 13px;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .enrolled-text span {
+      display: block;
+      font-weight: 600;
+    }
+
+    /* ========================================
+       DEMO VIDEO SECTION
+       ======================================== */
+    .demo-section {
+      padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-2xl);
+      background: var(--gradient-radial-demo);
+    }
+
+    .video-frame {
+      border: 3px solid var(--color-border-video);
+      border-radius: var(--radius-sm);
+      background: #111;
+      padding: 12px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+    }
+
+    .video-board {
+      background: var(--color-bg-video-board);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      padding: 16px 18px 0;
+      min-height: 520px;
+      background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
+
+    .channel-info {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      margin-bottom: 30px;
+    }
+
+    .channel-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gradient-badge-logo);
+    }
+
+    .channel-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .channel-title {
+      background: var(--color-bg-primary);
+      color: var(--color-text-primary);
+      padding: 6px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .channel-tag {
+      background: var(--color-bg-primary);
+      color: var(--color-text-primary);
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+    }
+
+    .video-side-actions {
+      position: absolute;
+      top: 20px;
+      right: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .icon-square {
+      width: 34px;
+      height: 34px;
+      border-radius: 3px;
+      background: var(--color-bg-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--color-text-primary);
+    }
+
+    .tweet-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 90px;
+    }
+
+    .tweet-card {
+      background: var(--color-bg-tweet);
+      color: var(--color-text-primary);
+      border-radius: var(--radius-lg);
+      padding: 22px 26px 18px;
+      max-width: 520px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+    }
+
+    .tweet-close {
+      position: absolute;
+      right: 20px;
+      top: 16px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .tweet-header {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      margin-bottom: 8px;
+    }
+
+    .tweet-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #999;
+    }
+
+    .tweet-user {
+      display: flex;
+      flex-direction: column;
+      font-size: 13px;
+    }
+
+    .tweet-user strong {
+      font-size: 14px;
+    }
+
+    .tweet-user span {
+      color: var(--color-text-darker);
+      font-size: 12px;
+    }
+
+    .tweet-body {
+      margin: 6px 0 10px;
+      font-size: 15px;
+    }
+
+    .tweet-meta {
+      font-size: 11px;
+      color: var(--color-text-darker);
+      margin-bottom: 10px;
+    }
+
+    .tweet-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    .tweet-actions span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tweet-label {
+      margin-top: 14px;
+      background: #e5e5e5;
+      color: #111;
+      padding: 4px 14px;
+      border-radius: 3px;
+      font-size: 11px;
+      text-transform: lowercase;
+    }
+
+    .video-controls {
+      margin-top: 0;
+      background: var(--color-bg-primary);
+      height: 52px;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      gap: 14px;
+    }
+
+    .play-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 3px;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .progress-area {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      font-size: 11px;
+      color: #eee;
+    }
+
+    .progress-bar {
+      flex: 1;
+      height: 6px;
+      border-radius: var(--radius-pill);
+      background: #555;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 40%;
+      height: 100%;
+      background: var(--color-text-secondary);
+    }
+
+    .control-icons {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      font-size: 14px;
+    }
+
+    .control-icons span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+    }
+
+    .vimeo-label {
+      font-size: 12px;
+      margin-left: 6px;
+      font-weight: 600;
+    }
+
+    /* ========================================
+       STATS SECTION
+       ======================================== */
+    .stats-section {
+      padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-2xl);
+      background: var(--gradient-radial-stats);
+    }
+
+    .stats-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .stats-title {
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .stats-subtitle {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1.2fr 1.1fr;
+      gap: 22px;
+    }
+
+    .stats-col {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .stat-card {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      padding: 22px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+    }
+
+    .stat-card-large {
+      height: 100%;
+      padding-top: var(--spacing-md);
+      padding-bottom: var(--spacing-md);
+      justify-content: flex-start;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .stat-card-text {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: #c1c1c1;
+    }
+
+    .stat-value {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .stat-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid #3a3a3a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--color-text-darker);
+    }
+
+    .center-card-text {
+      text-align: center;
+    }
+
+    .center-label {
+      display: block;
+      font-size: 14px;
+      color: var(--color-text-tertiary);
+      margin-bottom: 6px;
+    }
+
+    .center-value {
+      display: block;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .center-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 24px;
+      justify-content: center;
+      font-size: 14px;
+      color: #f0f0f0;
+      opacity: 0.9;
+    }
+
+    /* ========================================
+       OVERVIEW SECTION
+       ======================================== */
+    .overview-section {
+      padding: var(--spacing-xl) var(--spacing-sm) 100px;
+      background: var(--color-bg-primary);
+    }
+
+    .overview-frame {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-md);
+    }
+
+    .overview-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 56px var(--spacing-md) 42px;
+      border-left: 1px solid #191919;
+      border-right: 1px solid #191919;
+      background: #050507;
+    }
+
+    .overview-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 26px;
+    }
+
+    .overview-content p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--color-text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .overview-content p:last-child {
+      margin-bottom: 30px;
+    }
+
+    .overview-tools {
+      margin-top: var(--spacing-xs);
+    }
+
+    .tools-label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #9b9b9b;
+      margin-bottom: 12px;
+    }
+
+    .tools-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-xs) 22px;
+      font-size: 13px;
+      color: #cfcfcf;
+    }
+
+    .tool-pill {
+      display: inline-flex;
+      align-items: center;
+      opacity: 0.85;
+    }
+
+    .tool-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #bfbfbf;
+      margin-right: 8px;
+    }
+
+    /* ========================================
+       CURRICULUM SECTION
+       ======================================== */
+    .curriculum-section {
+      padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-2xl);
+      background: var(--gradient-radial-curriculum);
+      text-align: center;
+    }
+
+    .curriculum-pill {
+      display: inline-flex;
+      padding: 3px;
+      border-radius: var(--radius-pill);
+      background: var(--gradient-primary);
+      margin-bottom: 18px;
+    }
+
+    .curriculum-pill span {
+      padding: 7px 24px;
+      border-radius: var(--radius-pill);
+      background: rgba(0, 0, 0, 0.9);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .curriculum-title {
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .curriculum-modules {
+      margin: 0 auto var(--spacing-md);
+      max-width: 1150px;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .module-card {
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.95));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .module-card:last-child {
+      border-bottom: none;
+    }
+
+    .module-inner {
+      padding: var(--spacing-md) var(--spacing-md) 36px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .module-label {
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-accent-cyan);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .module-heading {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .module-subtitle {
+      font-size: 15px;
+      color: #cdcdcd;
+    }
+
+    /* ========================================
+       IS FOR YOU SECTION
+       ======================================== */
+    .isfor-section {
+      padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-2xl);
+      background: var(--color-bg-primary);
+      text-align: center;
+    }
+
+    .isfor-title {
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .isfor-description {
+      max-width: 820px;
+      margin: 0 auto 36px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #e3e3e3;
+    }
+
+    .isfor-benefits {
+      max-width: 1000px;
+      margin: 0 auto var(--spacing-md);
+      background: var(--color-bg-card-alt);
+      border-radius: var(--spacing-xs);
+      border: 1px solid var(--color-border-card);
+      padding: 22px 30px;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-align: left;
+      flex: 1;
+      font-size: 14px;
+      color: #f4f4f4;
+    }
+
+    .benefit-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      background: var(--color-accent-green-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent-green);
+      font-size: 18px;
+    }
+
+    /* ========================================
+       FAQ SECTION
+       ======================================== */
+    .faq-section {
+      padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-2xl);
+      background: var(--color-bg-primary);
+    }
+
+    .faq-title {
+      text-align: center;
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .faq-box {
+      background: var(--color-bg-faq);
+      border-radius: 14px;
+      border: 1px solid var(--color-border-faq);
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 22px 32px;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--color-text-primary);
+      font-size: 15px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background var(--transition-base);
+    }
+
+    .faq-question:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .faq-question span:first-child {
+      text-align: left;
+    }
+
+    .faq-toggle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--color-text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      padding: 0 24px;
+    }
+
+    .faq-item.open .faq-answer {
+      opacity: 1;
+      padding-bottom: 20px;
+    }
+
+    .faq-item.open .faq-question {
+      background: #0c0d12;
+    }
+
+    /* ========================================
+       RESPONSIVE MEDIA QUERIES (CONSOLIDATED)
+       ======================================== */
+
+    /* XL Breakpoint - 992px */
+    @media (max-width: 992px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-card-large {
+        height: auto;
+      }
+    }
+
+    /* LG Breakpoint - 900px */
+    @media (max-width: 900px) {
+      .isfor-benefits {
+        flex-direction: column;
+      }
+
+      .benefit-item {
+        text-align: left;
+      }
+    }
+
+    /* MD Breakpoint - 768px */
+    @media (max-width: 768px) {
+      .hero {
+        padding-top: var(--spacing-lg);
+      }
+
+      .hero-title {
+        font-size: 40px;
+      }
+
+      .hero-subtitle {
+        font-size: 15px;
+      }
+
+      .info-row {
+        gap: 30px;
+      }
+
+      .divider {
+        display: none;
+      }
+
+      .cta-row .btn-cta {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .video-board {
+        min-height: 420px;
+      }
+
+      .tweet-wrapper {
+        margin-top: var(--spacing-lg);
+      }
+
+      .tweet-card {
+        padding: 16px 18px 14px;
+      }
+
+      .channel-title {
+        white-space: normal;
+      }
+
+      .stats-title,
+      .curriculum-title,
+      .isfor-title,
+      .faq-title {
+        font-size: 30px;
+      }
+
+      .overview-frame {
+        padding: 0 12px;
+      }
+
+      .overview-inner {
+        padding: var(--spacing-md) var(--spacing-sm) 32px;
+        border-left: none;
+        border-right: none;
+      }
+
+      .overview-title {
+        font-size: 28px;
+      }
+
+      .module-inner {
+        padding: 30px var(--spacing-sm) 26px;
+      }
+
+      .module-heading {
+        font-size: 22px;
+      }
+
+      .faq-question {
+        padding: 18px;
+      }
+
+      .faq-answer {
+        padding: 0 18px 18px;
+      }
+    }
+
+    /* SM Breakpoint - 600px */
+    @media (max-width: 600px) {
+      .stat-card {
+        padding: 18px var(--spacing-sm);
+      }
+
+      .stat-value {
+        font-size: 20px;
+      }
+
+      .isfor-section {
+        padding: var(--spacing-lg) 16px 90px;
+      }
+
+      .isfor-description {
+        font-size: 14px;
+      }
+    }
+
+    /* XS Breakpoint - 480px */
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 32px;
+      }
+
+      .info-block {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .info-text {
+        text-align: center;
+      }
+    }
+
+    /* ========================================
+       MENTOR SECTION
+       ======================================== */
+    /* ========================================
+       MENTOR SECTION
+       ======================================== */
+    .mentor-section {
+      padding: var(--spacing-xl) var(--spacing-sm);
+      background: var(--color-bg-primary);
+    }
+
+    .mentor-list {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .mentor-card {
+      display: flex;
+      background: #050505;
+      border: 1px solid #222;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      min-height: 500px;
+    }
+
+    .mentor-image {
+      width: 40%;
+      background-color: #222;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    /* Placeholder for image - using a gradient if no image */
+    .mentor-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+    }
+
+    .mentor-content {
+      width: 60%;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .mentor-badge {
+      display: inline-block;
+      padding: 8px 18px;
+      border: 1px solid #333;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      align-self: flex-start;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      box-shadow: inset 0 0 0 1px #333;
+      /* Fake border to allow gradient text */
+    }
+
+    /* Fix for gradient text with border */
+    .mentor-badge-inner {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .mentor-name {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    .mentor-bio {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #ccc;
+    }
+
+    .mentor-bio p {
+      margin-bottom: 20px;
+    }
+
+    .highlight-cyan {
+      color: var(--color-accent-cyan);
+      font-weight: 600;
+    }
+
+    .highlight-white {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .mentor-card {
+        flex-direction: column;
+      }
+
+      .mentor-image {
+        width: 100%;
+        height: 300px;
+      }
+
+      .mentor-content {
+        width: 100%;
+        padding: 30px;
+      }
+
+      .mentor-name {
+        font-size: 32px;
+      }
+    }
+
+    /* ========================================
+       MODAL STYLES
+       ======================================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      background: #000;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 24px;
+      padding: 30px;
+      position: relative;
+      transform: scale(0.9);
+      transition: all 0.3s ease;
+      border: 1px solid #333;
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .modal-close:hover {
+      opacity: 1;
+    }
+
+    .modal-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .modal-logo {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      font-size: 30px;
+    }
+
+    .modal-title {
+      font-size: 22px;
+      font-weight: 700;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 0;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #ccc;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 15px;
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #333;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus {
+      border-color: #7FA048;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .country-code {
+      width: 80px;
+      background: #fff;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: var(--gradient-primary);
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      transition: transform 0.2s;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+    }
+
+    .modal-footer {
+      font-size: 10px;
+      color: #666;
+      text-align: center;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ========================================
+       HERO SECTION
+       ======================================== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="badge-wrapper">
+        <div class="gradient-badge">
+          <span>Highly Rated Gen AI Editing Masterclass</span>
+        </div>
+        <div class="badge-logo">😈</div>
+      </div>
+
+      <h1 class="hero-title">Gen AI Film Making<br>Masterclass</h1>
+
+      <p class="hero-subtitle">
+        Grasp the fundamentals of editing &amp; storytelling and extend
+        your horizon of opportunities with Gen AI
+      </p>
+
+      <div class="info-row">
+        <div class="info-block">
+          <div class="info-icon">📅</div>
+          <div class="info-text">
+            Date
+            <strong>26th Nov | Wednesday</strong>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="info-block">
+          <div class="info-icon">⏰</div>
+          <div class="info-text">
+            Time
+            <strong>8:00 PM</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <button class="btn-cta">
+          Enroll now <span class="arrow">→</span>
+        </button>
+
+        <div class="enrolled">
+          <div class="avatars">
+            <div class="avatar"></div>
+            <div class="avatar"></div>
+            <div class="avatar"></div>
+            <div class="avatar">3K+</div>
+          </div>
+          <div class="enrolled-text">
+            <span>Enrolled</span>
+            3000+ students
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       DEMO VIDEO SECTION
+       ======================================== -->
+  <section class="demo-section">
+    <div class="container">
+      <div class="video-frame">
+        <div class="video-board">
+          <div class="channel-info">
+            <div class="channel-avatar"></div>
+            <div class="channel-text">
+              <div class="channel-title">
+                Aevy Video School's Editing Masterclass Overview
+              </div>
+              <span class="channel-tag">Aevy TV</span>
+            </div>
+          </div>
+
+          <div class="video-side-actions">
+            <div class="icon-square">♡</div>
+            <div class="icon-square">🕒</div>
+            <div class="icon-square">✈️</div>
+          </div>
+
+          <div class="tweet-wrapper">
+            <div class="tweet-card">
+              <div class="tweet-close">✕</div>
+
+              <div class="tweet-header">
+                <div class="tweet-avatar"></div>
+                <div class="tweet-user">
+                  <strong>Naval</strong>
+                  <span>@naval</span>
+                </div>
+              </div>
+
+              <div class="tweet-body">
+                Applying for jobs before they exist.
+              </div>
+
+              <div class="tweet-meta">
+                6:49 am · 31 Jan 25
+              </div>
+
+              <div class="tweet-actions">
+                <span>♡ 2,421</span>
+                <span>💬 36</span>
+              </div>
+            </div>
+
+            <div class="tweet-label">tweet by Naval</div>
+          </div>
+        </div>
+
+        <div class="video-controls">
+          <div class="play-btn">▶</div>
+
+          <div class="progress-area">
+            <span>01:18</span>
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
+
+          <div class="control-icons">
+            <span>🔊</span>
+            <span>⚙</span>
+            <span>⛶</span>
+            <span class="vimeo-label">vimeo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       STATS SECTION
+       ======================================== -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-header">
+        <h2 class="stats-title">
+          <span class="gradient-text">Learn</span> From The Best
+        </h2>
+        <p class="stats-subtitle">*For the entire 3-month program</p>
+      </div>
+
+      <div class="stats-grid">
+        <!-- LEFT COLUMN -->
+        <div class="stats-col">
+          <div class="stat-card">
+            <div class="stat-card-text">
+              <span class="stat-label">Placement Rate</span>
+              <span class="stat-value">80%</span>
+            </div>
+            <div class="stat-icon">👥</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card-text">
+              <span class="stat-label">Average Salary</span>
+              <span class="stat-value">4.8 LPA</span>
+            </div>
+            <div class="stat-icon">💳</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card-text">
+              <span class="stat-label">Max. Salary</span>
+              <span class="stat-value">30 LPA</span>
+            </div>
+            <div class="stat-icon">📈</div>
+          </div>
+        </div>
+
+        <!-- CENTER COLUMN (BIG CARD) -->
+        <div class="stats-col">
+          <div class="stat-card stat-card-large">
+            <div class="center-card-text">
+              <span class="center-label">Placement network of</span>
+              <span class="center-value">750+ companies</span>
+            </div>
+
+            <div class="center-logos">
+              <span>ULTRAHUMAN</span>
+              <span>cleartrip</span>
+              <span>blin…</span>
+              <span>100x</span>
+              <span>TheClipsAgency</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="stats-col">
+          <div class="stat-card">
+            <div class="stat-card-text">
+              <span class="stat-label">Trained</span>
+              <span class="stat-value">3000+ editors</span>
+            </div>
+            <div class="stat-icon">🏅</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card-text">
+              <span class="stat-label">Subs. On YouTube</span>
+              <span class="stat-value">1M</span>
+            </div>
+            <div class="stat-icon">▶</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card-text">
+              <span class="stat-label">Followers On IG</span>
+              <span class="stat-value">350K</span>
+            </div>
+            <div class="stat-icon">📸</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       OVERVIEW SECTION
+       ======================================== -->
+  <section class="overview-section">
+    <div class="overview-frame">
+      <div class="overview-inner">
+        <h2 class="overview-title">
+          <span class="gradient-text">Masterclass</span> Overview
+        </h2>
+
+        <div class="overview-content">
+          <p>
+            The landscape of content creation has evolved multifold with Gen AI tools.
+          </p>
+          <p>
+            From creating visual assets, to sound design, and now creating a digital avatar, Gen AI tools have
+            solved the volume and the quality game for some of the biggest creators in the industry.
+          </p>
+          <p>
+            So, if you want to become a well-paying editor, being able to solve the growing problems of your niche
+            with Gen AI can give you substantial leverage in the market.
+          </p>
+          <p>
+            Join this masterclass to learn these Gen AI workflows while getting a well-rounded understanding of
+            Video Editing!
+          </p>
+        </div>
+
+        <div class="overview-tools">
+          <div class="tools-label">
+            <span class="gradient-text">TOOLS</span> COVERED
+          </div>
+
+          <div class="tools-list">
+            <span class="tool-pill">
+              <span class="tool-dot"></span> Premiere Pro
+            </span>
+            <span class="tool-pill">
+              <span class="tool-dot"></span> Adobe Photoshop
+            </span>
+            <span class="tool-pill">
+              <span class="tool-dot"></span> Ideogram
+            </span>
+            <span class="tool-pill">
+              <span class="tool-dot"></span> RunwayML
+            </span>
+            <span class="tool-pill">
+              <span class="tool-dot"></span> Midjourney
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       CURRICULUM SECTION
+       ======================================== -->
+  <section class="curriculum-section">
+    <div class="container">
+      <div class="curriculum-pill">
+        <span>Curriculum</span>
+      </div>
+
+      <h2 class="curriculum-title">
+        What Will You <span class="gradient-text">Learn</span>
+      </h2>
+
+      <div class="curriculum-modules">
+        <!-- MODULE 1 -->
+        <article class="module-card">
+          <div class="module-inner">
+            <p class="module-label">Module 1</p>
+            <h3 class="module-heading">Core Video Editing Skills</h3>
+            <p class="module-subtitle">
+              Build awareness of the tools required to become an editor.
+            </p>
+          </div>
+        </article>
+
+        <!-- MODULE 2 -->
+        <article class="module-card">
+          <div class="module-inner">
+            <p class="module-label">Module 2</p>
+            <h3 class="module-heading">GenAI Workflows</h3>
+            <p class="module-subtitle">
+              Understand how Gen AI can improve your odds of getting hired.
+            </p>
+          </div>
+        </article>
+
+        <!-- MODULE 3 -->
+        <article class="module-card">
+          <div class="module-inner">
+            <p class="module-label">Module 3</p>
+            <h3 class="module-heading">Motion Design Essentials</h3>
+            <p class="module-subtitle">
+              Grasp what it takes to elevate an edit with motion design.
+            </p>
+          </div>
+        </article>
+
+        <!-- MODULE 4 -->
+        <article class="module-card">
+          <div class="module-inner">
+            <p class="module-label">Module 4</p>
+            <h3 class="module-heading">
+              Video Editing Career Playbook With QnA
+            </h3>
+            <p class="module-subtitle">
+              Learn from our experience of teaching 2500 students.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <button class="btn-cta">
+        Enroll now <span class="arrow">→</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ========================================
+       IS THIS FOR YOU SECTION
+       ======================================== -->
+  <section class="isfor-section">
+    <div class="container">
+      <h2 class="isfor-title">
+        Is This <span class="gradient-text">For You?</span>
+      </h2>
+
+      <p class="isfor-description">
+        This masterclass is designed for aspiring video editors, content creators, and creative professionals
+        who want to leverage Gen AI tools to enhance their editing skills and career prospects in the rapidly
+        evolving content creation industry.
+      </p>
+
+      <div class="isfor-benefits">
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <span>Learn from Industry Experts</span>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <span>Hands-on Gen AI Training</span>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <span>Career Support & Placement</span>
+        </div>
+      </div>
+
+      <button class="btn-cta">
+        Enroll now <span class="arrow">→</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ========================================
+       MENTOR SECTION
+       ======================================== -->
+  <section class="mentor-section">
+    <div class="container">
+      <div class="mentor-list">
+        <!-- Mentor 1 -->
+        <article class="mentor-card">
+          <div class="mentor-image"
+            style="background-image: url('https://framerusercontent.com/images/8tLwO3e97I43qK529yWb928.png');"></div>
+          <div class="mentor-content">
+            <div class="mentor-badge">
+              <span class="mentor-badge-inner">Meet Your Instructor</span>
+            </div>
+            <h2 class="mentor-name">Martin Noronha</h2>
+            <div class="mentor-bio">
+              <p>
+                With an industry experience for 8+ years, he has worked with the Bollywood director <span
+                  class="highlight-cyan">Piyush Jha</span> as a video producer. He has also worked with creators &
+                companies like <span class="highlight-cyan">Varun Mayya, Shashank Udupa, Abhinav Arora, Raj
+                  Shamani</span> & VC funded companies like <span class="highlight-cyan">Stoa, Newton School, Scenes by
+                  Avalon</span> and many others - creating a plethora of multimedia content.
+              </p>
+              <p>
+                He has trained <span class="highlight-cyan">1500+ students over the past two years</span> where most of
+                them are working with some of the biggest creators like Ali Abdaal, Tanmay Bhat, Nikhil Kamath, Finance
+                with Sharan and companies like <span class="highlight-white">Unacademy, Physicswallah, Zerodha,
+                  Zoho</span> and many more.
+              </p>
+              <p>
+                He also has built <span class="highlight-cyan">7+ YouTube Channels</span> like <span
+                  class="highlight-cyan">AevyTV, Varun Mayya, Avalon Meta Live</span>, Breakdown with a total of 2M+
+                follower base & 80M+ views. He also has expertise in <span class="highlight-cyan">Virtual
+                  Production</span> using Unreal Engine.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Mentor 2 -->
+        <article class="mentor-card">
+          <div class="mentor-image"
+            style="background-image: url('https://framerusercontent.com/images/3aX5b7c9d2E1f4G6h8I0j2K.png'); background-color: #333;">
+          </div>
+          <div class="mentor-content">
+            <div class="mentor-badge">
+              <span class="mentor-badge-inner">Meet Your Instructor</span>
+            </div>
+            <h2 class="mentor-name">Shirsh Bajpai</h2>
+            <div class="mentor-bio">
+              <p>
+                8+ years of experience, Content Head & Instructor @Aevy Video School. Some of you might also know him by
+                his Internet Alias, <span class="highlight-cyan">PapaOcus</span>. He has built a following of <span
+                  class="highlight-cyan">100,000 people</span> across different social media platforms.
+              </p>
+              <p>
+                Shirsh has also worked with the biggest creators of our country like <span
+                  class="highlight-cyan">CarryMinati & Ashish Chanchalani</span>.
+              </p>
+              <p>
+                He also ran his own agency, where he worked with massive brands like <span class="highlight-cyan">Red
+                  Bull, Netflix, and Amazon MiniTV</span>. He co-founded AevyTV which is the fastest growing
+                infotainment channel in India.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FAQ SECTION
+       ======================================== -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="faq-title">
+        Frequently Asked <span class="gradient-text">Questions</span>
+      </h2>
+
+      <div class="faq-box">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What is the duration of this masterclass?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            This masterclass is a comprehensive session that covers all essential topics in Gen AI film making.
+            The live session is scheduled for 26th November at 8:00 PM, and you'll also get access to recorded content.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do I need prior editing experience?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            No prior experience is required! This masterclass is designed to be beginner-friendly while also providing
+            advanced insights for those with some editing background.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What software do I need?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            We'll be covering tools like Premiere Pro, Adobe Photoshop, Ideogram, RunwayML, and Midjourney.
+            You don't need to have all of them installed before the session - we'll guide you through the setup.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Will I receive a certificate?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes! All participants who complete the masterclass will receive a certificate of completion from Aevy TV.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is there placement assistance?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            Absolutely! We have a placement network of 750+ companies and an 80% placement rate.
+            Our team will provide career guidance and connect you with opportunities in the industry.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // FAQ Toggle functionality
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const toggle = button.querySelector('.faq-toggle');
+
+
+
+
+
+
+
+
+
+        // Close other open items (optional, but good for accordion behavior)
+
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+          if (otherItem !== item && otherItem.classList.contains('open')) {
+            otherItem.classList.remove('open');
+            otherItem.querySelector('.faq-answer').style.maxHeight = null;
+            otherItem.querySelector('.faq-answer').style.opacity = 0;
+            otherItem.querySelector('.faq-toggle').textContent = '+';
+          }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (item.classList.contains('open')) {
+          item.classList.remove('open');
+          answer.style.maxHeight = null;
+          answer.style.opacity = 0;
+          toggle.textContent = '+';
+        } else {
+          item.classList.add('open');
+          answer.style.maxHeight = answer.scrollHeight + "px";
+          answer.style.opacity = 1;
+          toggle.textContent = '−';
+        }
+      });
+    });
+  </script>
+  <!-- Modal -->
+  <div class="modal-overlay" id="enrollModal">
+    <div class="modal-card">
+      <button class="modal-close" id="closeModal">&times;</button>
+
+      <div class="modal-header">
+        <div class="modal-logo">
+          <span>🦍</span>
+        </div>
+        <h3 class="modal-title">Video Editing Masterclass</h3>
+      </div>
+
+      <form onsubmit="event.preventDefault();">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" placeholder="Enter your name">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="example@gmail.com">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Mobile No</label>
+          <div class="form-row">
+            <select class="form-input country-code">
+              <option>🇮🇳 +91</option>
+              <option>🇺🇸 +1</option>
+            </select>
+            <input type="tel" class="form-input" placeholder="Enter your 10 Digit WhatsApp number">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Professional Status</label>
+          <input type="text" class="form-input" placeholder="Enter Your Professional Status">
+        </div>
+
+        <button type="submit" class="btn-submit">Submit and Join Whatsapp group</button>
+      </form>
+
+      <div class="modal-footer">
+        By proceeding you agree to our Terms, Privacy & Refund Policy.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Modal functionality
+    const modal = document.getElementById('enrollModal');
+    const enrollBtns = document.querySelectorAll('.btn-cta');
+    const closeBtn = document.getElementById('closeModal');
+
+    enrollBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        modal.classList.add('active');
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+
+</html>
