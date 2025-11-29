@@ -121,7 +121,7 @@
 
     /* Button CTA */
 
-     .btn-cta {
+    .btn-cta {
       border: none;
       padding: 18px 60px;
       border-radius: var(--radius-pill);
@@ -178,9 +178,9 @@
     .btn-cta .arrow {
       font-size: 18px;
       transform: translateY(1px);
-    } 
+    }
 
-     
+
 
 
 
@@ -361,6 +361,23 @@
     .demo-section {
       padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-2xl);
       background: var(--gradient-radial-demo);
+    }
+
+    .video-responsive {
+      position: relative;
+      padding-bottom: 56.25%;
+      /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .video-responsive iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .video-frame {
@@ -1497,69 +1514,11 @@
   <section class="demo-section">
     <div class="container">
       <div class="video-frame">
-        <div class="video-board">
-          <div class="channel-info">
-            <div class="channel-avatar"></div>
-            <div class="channel-text">
-              <div class="channel-title">
-                Aevy Video School's Editing Masterclass Overview
-              </div>
-              <span class="channel-tag">Aevy TV</span>
-            </div>
-          </div>
-
-          <div class="video-side-actions">
-            <div class="icon-square">♡</div>
-            <div class="icon-square">🕒</div>
-            <div class="icon-square">✈️</div>
-          </div>
-
-          <div class="tweet-wrapper">
-            <div class="tweet-card">
-              <div class="tweet-close">✕</div>
-
-              <div class="tweet-header">
-                <div class="tweet-avatar"></div>
-                <div class="tweet-user">
-                  <strong>Naval</strong>
-                  <span>@naval</span>
-                </div>
-              </div>
-
-              <div class="tweet-body">
-                Applying for jobs before they exist.
-              </div>
-
-              <div class="tweet-meta">
-                6:49 am · 31 Jan 25
-              </div>
-
-              <div class="tweet-actions">
-                <span>♡ 2,421</span>
-                <span>💬 36</span>
-              </div>
-            </div>
-
-            <div class="tweet-label">tweet by Naval</div>
-          </div>
-        </div>
-
-        <div class="video-controls">
-          <div class="play-btn">▶</div>
-
-          <div class="progress-area">
-            <span>01:18</span>
-            <div class="progress-bar">
-              <div class="progress-fill"></div>
-            </div>
-          </div>
-
-          <div class="control-icons">
-            <span>🔊</span>
-            <span>⚙</span>
-            <span>⛶</span>
-            <span class="vimeo-label">vimeo</span>
-          </div>
+        <div class="video-responsive">
+          <iframe
+            src="https://player.vimeo.com/video/1057601070?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+            title="Demo Video"></iframe>
         </div>
       </div>
     </div>
