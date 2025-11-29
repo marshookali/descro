@@ -768,6 +768,9 @@
 
     .overview-tools {
       margin-top: var(--spacing-xs);
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     }
 
     .tools-label {
@@ -780,10 +783,22 @@
 
     .tools-list {
       display: flex;
-      flex-wrap: wrap;
-      gap: var(--spacing-xs) 22px;
+      flex-wrap: nowrap;
+      gap: 30px;
       font-size: 13px;
       color: #cfcfcf;
+      width: max-content;
+      animation: scrollTools 20s linear infinite;
+    }
+
+    @keyframes scrollTools {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     .tool-pill {
@@ -1661,6 +1676,22 @@
             <span class="tool-pill">
               <span class="tool-dot"></span> Midjourney
             </span>
+            <!-- Duplicated content for infinite scroll -->
+            <span class="tool-pill">
+              <span class="tool-dot"></span> Premiere Pro
+            </span>
+            <span class="tool-pill">
+              <span class="tool-dot"></span> Adobe Photoshop
+            </span>
+            <span class="tool-pill">
+              <span class="tool-dot"></span> Ideogram
+            </span>
+            <span class="tool-pill">
+              <span class="tool-dot"></span> RunwayML
+            </span>
+            <span class="tool-pill">
+              <span class="tool-dot"></span> Midjourney
+            </span>
           </div>
         </div>
       </div>
@@ -1919,13 +1950,6 @@
         const toggle = button.querySelector('.faq-toggle');
 
 
-
-
-
-
-
-
-
         // Close other open items (optional, but good for accordion behavior)
 
         document.querySelectorAll('.faq-item').forEach(otherItem => {
@@ -1936,18 +1960,6 @@
             otherItem.querySelector('.faq-toggle').textContent = '+';
           }
         });
-
-
-
-
-
-
-
-
-
-
-
-
 
         if (item.classList.contains('open')) {
           item.classList.remove('open');
