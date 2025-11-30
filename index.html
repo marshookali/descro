@@ -159,11 +159,13 @@
       left: 0;
       right: 0;
       bottom: 0;
-      color: white;
+      /* color: white; */
       background: linear-gradient(135deg, #7FA048 0%, #4A6828 100%);
       opacity: 0;
-      transition: opacity 0.4s ease;
-      border-radius: var(--radius-pill);
+      transition: opacity 0.4s;
+      z-index: 1;
+      /* border-radius: var(--radius-pill); */
+      border-radius: 999px;
     }
 
     .btn-cta:hover {
@@ -176,6 +178,7 @@
     .btn-cta:hover span,
     .btn-cta:hover .arrow {
       color: #ffffff !important;
+      z-index: 2;
     }
 
     .btn-cta:hover::before {
@@ -185,7 +188,8 @@
     .btn-cta span,
     .btn-cta .arrow {
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      transition: color 0.4s;
     }
 
     .btn-cta .arrow {
@@ -1527,7 +1531,7 @@
 
       <div class="cta-row">
         <button class="btn-cta">
-          Enroll now <span class="arrow">→</span>
+          <span>Enroll now</span> <span class="arrow">→</span>
         </button>
 
         <div class="enrolled">
@@ -1797,7 +1801,7 @@
       </div>
 
       <button class="btn-cta">
-        Enroll now <span class="arrow">→</span>
+        <span>Enroll now</span> <span class="arrow">→</span>
       </button>
     </div>
   </section>
@@ -1835,7 +1839,7 @@
       </div>
 
       <button class="btn-cta">
-        Enroll now <span class="arrow">→</span>
+        <span>Enroll now</span> <span class="arrow">→</span>
       </button>
     </div>
   </section>
