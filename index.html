@@ -100,9 +100,10 @@
     /* Gradient Badge */
     .gradient-badge {
       display: inline-block;
-      padding: 1px;
+      padding: 0.5px;
       border-radius: var(--radius-pill);
-      background: var(--gradient-icon);
+      background: var(--gradient-badge-logo);
+      /*  */
       margin-bottom: var(--spacing-xs);
 
     }
@@ -120,16 +121,25 @@
       border: 1px solid rgba(24, 211, 79, 0.18);
     }
 
+    .gradient-badge span strong {
+      background: linear-gradient(135deg, #7FA048 0%, #4A6828 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 600;
+    }
+
     /* Gradient Text */
 
     .gradient-text {
 
       background-clip: text;
-      background: var(--gradient-primary);  -webkit-background-clip: text;
-     
-     
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+
+
       color: transparent;
-      
+
     }
 
     /* Button CTA */
@@ -365,6 +375,15 @@
       display: block;
       font-weight: 600;
     }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
 
     /* ========================================
        DEMO VIDEO SECTION
@@ -1494,7 +1513,7 @@
     <div class="hero-inner">
       <div class="badge-wrapper">
         <div class="gradient-badge">
-          <span>Highly Rated Gen AI Editing Masterclass</span>
+          <span><strong>Highly Rated Gen AI Editing Masterclass</strong></span>
         </div>
         <div class="badge-logo">😈</div>
       </div>
@@ -1536,9 +1555,11 @@
 
         <div class="enrolled">
           <div class="avatars">
-            <div class="avatar"></div>
-            <div class="avatar"></div>
-            <div class="avatar"></div>
+            <div class="avatar"> <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe"
+                alt="mentor one"></div>
+            <div class="avatar"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"
+                alt="mentor two"></div>
+            <div class="avatar"><img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde" alt=""></div>
             <div class="avatar">3K+</div>
           </div>
           <div class="enrolled-text">
@@ -1640,7 +1661,7 @@
             </div>
             <div class="stat-icon">
               <!-- <i class="fa-solid fa-badge-check"></i> -->
-               <i class="fa-solid fa-graduation-cap"></i>
+              <i class="fa-solid fa-graduation-cap"></i>
             </div>
           </div>
 
