@@ -94,21 +94,27 @@
 
     /* Gradient Badge */
     .gradient-badge {
-      padding: 4px;
+      display: inline-block;
+      padding: 8px 18px;
+      border: 1px solid #333;
       border-radius: var(--radius-pill);
       background: var(--gradient-primary);
-      display: inline-flex;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      box-shadow: inset 0 0 0 1px #333;
+      margin-bottom: var(--spacing-xs);
     }
 
     .gradient-badge span {
-      padding: 10px 36px;
-      border-radius: var(--radius-pill);
-      background: rgba(0, 0, 0, 0.9);
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
       font-size: 12px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       font-weight: 600;
-      color: var(--color-text-secondary);
     }
 
     /* Gradient Text */
@@ -825,17 +831,23 @@
     }
 
     .curriculum-pill {
-      display: inline-flex;
-      padding: 3px;
+      display: inline-block;
+      padding: 8px 18px;
+      border: 1px solid #333;
       border-radius: var(--radius-pill);
       background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      box-shadow: inset 0 0 0 1px #333;
       margin-bottom: 18px;
     }
 
     .curriculum-pill span {
-      padding: 7px 24px;
-      border-radius: var(--radius-pill);
-      background: rgba(0, 0, 0, 0.9);
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
       font-size: 11px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
